@@ -1,0 +1,74 @@
+w20012367 Pik Sum Siu(Yoyo Siu)
+ 
+Endpoints
+
+GET /AuthorAndAffiliation
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/AuthorAndAffiliation
+This endpoint retrieves the publications associated with each author, including their corresponding affiliations. An author may have multiple associations with each publication, considering the possibility of registrations with different institutions.. Additionally, an author may have several publications.
+
+    Params-
+    * content: Get content details, author details and affiliation with given content id.   (e.g. content=96102)
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/AuthorAndAffiliation?content=96102
+
+    * country: Returns all content details and author details associated with the specified country affiliation.  (e.g. country=japan)
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/AuthorAndAffiliation?country=japan
+    
+ 
+GET /Content
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/content
+This endpoint returns more detailed content information with associated award: content id, content title, type, abstract and award.
+
+    Params-
+    * page: It takes a pagination limit of returning 20 results for a page with the given param.  (e.g. page=1)
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/content?page=1
+
+    * type: Returns all content information associated with the specified content type.  (e.g. type=paper)
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/content?type=paper
+
+ 
+GET /Developer
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/developer
+This enpoint returns my name and student id and no param is added.
+ 
+GET / POST Note
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/note
+This endpoint returns content note for each user and allow user to save a note for content or remove a stored note for a content. Connected to users.sqlite database.
+
+    Params-
+    * method: 'GET'- This operation retrieves user's existing content note when a bearer token is passed in the authorization heade.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/note
+
+    * method: 'POST'- This operation saves content note under the user when a bearer token is provided in the authorization header, and the content ID along with the author ID and note is passed through the request body.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/note
+
+
+GET /Preview
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/preview
+This endpoint only return content that has association with a preview video links in a random order.
+
+    Params-
+    * limit: It takes an integer limit of '1' and returning only one random result with the given param.  (e.g. limit=1)
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/preview?limit=1
+
+GET / POST/ DELETE Save
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/save
+This endpoint returns saved content for each user and allow user to save a content or remove a saved content. Connected to users.sqlite database.
+
+    Params-
+    * method: 'GET'- This operation retrieves user's saved content when a bearer token is passed in the authorization heade.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/save
+
+    * method: 'POST'- This operation saves content under the user when a bearer token is provided in the authorization header, and the content ID along with the author ID is passed through the request body.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/save
+
+    * method: 'DELETE'- This operation removes saved content from the user when a bearer token is provided in the authorization header. It uses the content_id parameter to specify the content to be deleted.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/save?content_id=
+
+GET / POST Token
+https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/token
+This endpoint creates and returns a JWT token, unique to each user and each session, with an expiration set to 30 minutes from the time of issuance.
+
+    Params-
+    * method: 'GET' & 'POST' This operation exclusively functions when the correct username and password are transmitted through the authorization header.
+    https://w20012367.nuwebspace.co.uk/kf6012/coursework/api/token
+
